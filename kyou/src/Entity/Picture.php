@@ -19,7 +19,7 @@ class Picture
     /**
      * @ORM\Column(type="string")
      *
-     * @Assert\NotBlank(message="Please, upload the product brochure as picture file.")
+     * @Assert\NotBlank(message="Please, upload picture file.")
      */
     private $photo;
 

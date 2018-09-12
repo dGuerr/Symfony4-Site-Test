@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PhotoController  extends AbstractController
 {
-    private $imageUploadPath;
     /**
      * @Route("/photo/new", name="app_photo_new")
      */
@@ -32,11 +31,10 @@ class PhotoController  extends AbstractController
 
             $picture->setPhoto($fileName);
 
-
             return $this->redirect($this->generateUrl('index'));
         }
 
-        return $this->render('upload.html.twig', array(
+        return $this->render('Functions/upload.html.twig', array(
             'form' => $form->createView(),
         ));
     }
