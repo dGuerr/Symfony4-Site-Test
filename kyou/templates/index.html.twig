@@ -2,6 +2,12 @@
 
 {% block body %}
     <a href="{{ path('security_login')}}"> Connexion</a>
+    <a href="{{ path('app_photo_new')}}"></a>
 
-
+    Liste des photos :
+    {% for image in images %}
+        <div class="carousel-item active">
+            <img src="uploads/images{{asset(image)}}">
+        </div>
+    {% endfor %}
 {% endblock %}

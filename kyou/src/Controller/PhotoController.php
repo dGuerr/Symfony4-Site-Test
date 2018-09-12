@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PhotoController  extends AbstractController
 {
+    private $imageUploadPath;
     /**
      * @Route("/photo/new", name="app_photo_new")
      */
@@ -29,8 +30,6 @@ class PhotoController  extends AbstractController
                 $fileName
             );
 
-            // updates the 'brochure' property to store the PDF file name
-            // instead of its contents
             $picture->setPhoto($fileName);
 
 
