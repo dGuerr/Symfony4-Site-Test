@@ -63,11 +63,12 @@ class Articles
     }
 
     /**
-     * @param mixed $title
+     * @param $title
      */
-    public function setTitle($title): void
+    public function setTitle($title)
     {
         $this->title = $title;
+        return;
     }
 
     /**
@@ -79,11 +80,12 @@ class Articles
     }
 
     /**
-     * @param mixed $article
+     * @param $article
      */
-    public function setArticle($article): void
+    public function setArticle($article)
     {
         $this->article = $article;
+        return;
     }
 
     /**
@@ -95,11 +97,12 @@ class Articles
     }
 
     /**
-     * @param mixed $date
+     * @param $date
      */
-    public function setDate($date): void
+    public function setDate($date)
     {
         $this->date = $date;
+        return;
     }
 
     /**
@@ -111,11 +114,12 @@ class Articles
     }
 
     /**
-     * @param mixed $author
+     * @param $author
      */
-    public function setAuthor($author): void
+    public function setAuthor($author)
     {
         $this->author = $author;
+        return;
     }
 
     /**
@@ -127,10 +131,11 @@ class Articles
     }
 
     /**
-     * @param mixed $status
+     * @param $status
      */
-    public function setStatus($status): void
+    public function setStatus($status)
     {
         $this->status = $status;
+        return;
     }
 }

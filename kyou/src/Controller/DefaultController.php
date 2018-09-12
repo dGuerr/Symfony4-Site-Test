@@ -2,12 +2,27 @@
 
 namespace App\Controller;
 
+use App\Manager\PhotoManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController  extends AbstractController
+class DefaultController extends AbstractController
 {
+    /**
+     * @var PhotoManager $photoManager
+     */
+    private $photoManager;
+
+    /**
+     * DefaultController constructor.
+     * @param PhotoManager $photoManager
+     */
+    public function __construct(PhotoManager $photoManager)
+    {
+        $this->photoManager = $photoManager;
+    }
+
     /**
      * @Route("/", name="index")
      */
@@ -16,7 +31,7 @@ class DefaultController  extends AbstractController
         return $this->render(
             'index.html.twig',
             [
-                'images' => $this->getImages(),
+                'images' => $this->photoManager->getImages($this->getParameter('pictures_directory')),
             ]
         );
     }
@@ -27,19 +42,5 @@ class DefaultController  extends AbstractController
     public function admin()
     {
         return $this->render('Admin/index.html.twig');
-    }
-
-    private function getImages()
-    {
-        $images = [];
-
-        $finder = new Finder();
-        $finder->files()->in($this->getParameter('pictures_directory'));
-
-        foreach ($finder as $file) {
-            $images[] = $file->getFilename();
-        }
-
-        return $images;
     }
 }

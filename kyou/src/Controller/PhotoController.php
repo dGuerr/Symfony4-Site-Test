@@ -12,6 +12,10 @@ class PhotoController  extends AbstractController
 {
     /**
      * @Route("/photo/new", name="app_photo_new")
+     *
+     * @param Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function new(Request $request)
     {
